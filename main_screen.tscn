@@ -51,5 +51,12 @@ script = ExtResource("1_6on3r")
 
 [node name="MainHTTPRequest" type="HTTPRequest" parent="API_Handler"]
 
+[node name="Output" type="Label" parent="."]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 384.0
+offset_right = 154.0
+offset_bottom = 407.0
+
 [connection signal="pressed" from="Button" to="API_Handler" method="_on_button_pressed"]
 [connection signal="request_completed" from="API_Handler/MainHTTPRequest" to="API_Handler" method="_on_main_http_request_request_completed"]

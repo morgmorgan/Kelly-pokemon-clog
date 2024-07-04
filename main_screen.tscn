@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://xrs1lnuqdiny"]
+
+[ext_resource type="Script" path="res://API_Handler.gd" id="1_6on3r"]
+[ext_resource type="Texture2D" uid="uid://gbmj28drnrxj" path="res://icon.svg" id="1_32wdf"]
+
+[node name="MainScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -465.0
+offset_top = -88.0
+offset_right = -281.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Search:"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 274.0
+offset_right = 366.0
+offset_bottom = 312.0
+placeholder_text = "pokemon name..."
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(821, 294)
+texture = ExtResource("1_32wdf")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 277.0
+offset_right = 505.0
+offset_bottom = 308.0
+text = "search that shit"
+
+[node name="API_Handler" type="Node" parent="."]
+script = ExtResource("1_6on3r")
+
+[node name="MainHTTPRequest" type="HTTPRequest" parent="API_Handler"]
+
+[connection signal="pressed" from="Button" to="API_Handler" method="_on_button_pressed"]
+[connection signal="request_completed" from="API_Handler/MainHTTPRequest" to="API_Handler" method="_on_main_http_request_request_completed"]

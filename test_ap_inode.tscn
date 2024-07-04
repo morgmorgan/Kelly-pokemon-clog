@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwva455iot4hx"]
+
+[ext_resource type="Script" path="res://test_ap_inode.gd" id="1_s0wc0"]
+
+[node name="testAPInode" type="Node"]
+script = ExtResource("1_s0wc0")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
